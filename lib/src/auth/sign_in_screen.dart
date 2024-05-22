@@ -34,6 +34,13 @@ class _SignInScreenState extends State<SignInScreen> {
                       TextSpan(
                         style: TextStyle(
                           fontSize: 40.0,
+                          shadows: [
+                            Shadow(
+                              color: Color.fromARGB(255, 68, 67, 67),
+                              offset: Offset(2.0, 2.0),
+                              blurRadius: 6.0
+                            ),
+                          ]
                         ),
                         children: [
                           TextSpan(
@@ -57,7 +64,17 @@ class _SignInScreenState extends State<SignInScreen> {
                     SizedBox(
                       height: 30.0,
                       child: DefaultTextStyle(
-                        style: TextStyle( fontSize: 22.0,  color: CustomColors.customContrastColor),
+                        style: TextStyle( 
+                          fontSize: 22.0, 
+                          color: CustomColors.customContrastColor,
+                          shadows: const [
+                            Shadow(
+                              color: Color.fromARGB(255, 68, 67, 67),
+                              offset: Offset(1.0, 1.0),
+                              blurRadius: 4.0
+                            ),
+                          ]
+                        ),
                         child: AnimatedTextKit(
                           pause: Duration.zero,
                           repeatForever: true,
