@@ -1,6 +1,7 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
 import 'package:fruittrace/src/auth/components/custom_text_field.dart';
+import 'package:fruittrace/src/auth/config/custom_colors.dart';
 
 class SignInScreen extends StatefulWidget {
   const SignInScreen({super.key});
@@ -13,7 +14,7 @@ class _SignInScreenState extends State<SignInScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.green,
+      backgroundColor: CustomColors.customSwatchColor,
       body: Column(
         children: [
           // parte de cimay
@@ -49,7 +50,7 @@ class _SignInScreenState extends State<SignInScreen> {
                 SizedBox(
                   height: 30.0,
                   child: DefaultTextStyle(
-                    style: const TextStyle( fontSize: 22.0,  color: Color.fromARGB(255, 143, 59, 59)),
+                    style: TextStyle( fontSize: 22.0,  color: CustomColors.customContrastColor),
                     child: AnimatedTextKit(
                       pause: Duration.zero,
                       repeatForever: true,
@@ -139,10 +140,10 @@ class _SignInScreenState extends State<SignInScreen> {
                   alignment: Alignment.centerRight,
                   child: TextButton(
                     onPressed: () {},
-                    child: const Text(
+                    child: Text(
                       'Esqueceu a senha?',
                       style: TextStyle(
-                        color: Colors.red,
+                        color: CustomColors.customContrastColor,
                       ),
                     ),
                   ),
