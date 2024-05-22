@@ -1,14 +1,28 @@
 import 'package:flutter/material.dart';
 import 'package:fruittrace/src/auth/components/custom_text_field.dart';
 import 'package:fruittrace/src/auth/config/custom_colors.dart';
+import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 
 class SignUpScreen extends StatelessWidget {
-  const SignUpScreen({super.key});
+  SignUpScreen({super.key});
+
+  // máscara do cpf
+  final cpfFormatter = MaskTextInputFormatter(
+    mask: "###.###.###-##",
+    filter: {'#': RegExp(r'[0-9]')},
+  );
+
+  // máscara do telefone
+  final phoneFormatter = MaskTextInputFormatter(
+    mask: "(##) # ####-####",
+    filter: {'#': RegExp(r'[0-9]')},
+  );
 
   @override
   Widget build(BuildContext context) {
 
     final size = MediaQuery.of(context).size;
+    
 
     return Scaffold(
       backgroundColor: CustomColors.customSwatchColor,
@@ -63,13 +77,15 @@ class SignUpScreen extends StatelessWidget {
                           label: 'Senha',
                           isSecret: true,
                         ),
-                        const CustomTextField(
+                        CustomTextField(
                           icon: Icons.phone,
                           label: 'Celular',
+                          inputFormatters: [phoneFormatter],
                         ),
-                        const CustomTextField(
+                        CustomTextField(
                           icon: Icons.file_copy,
                           label: 'CPF',
+                          inputFormatters: [cpfFormatter],
                         ),
                         SizedBox(
                           height: 50.0,
@@ -99,6 +115,8 @@ class SignUpScreen extends StatelessWidget {
                   ),
                 ],
               ),
+
+              // btn voltar
               Positioned(
                 left: 10.0,
                 top: 10.0,
