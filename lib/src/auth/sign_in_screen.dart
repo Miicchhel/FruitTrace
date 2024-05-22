@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fruittrace/src/auth/components/custom_text_field.dart';
 
 class SignInScreen extends StatefulWidget {
   const SignInScreen({super.key});
@@ -14,7 +15,7 @@ class _SignInScreenState extends State<SignInScreen> {
       backgroundColor: Colors.green,
       body: Column(
         children: [
-          // parte de cima
+          // parte de cimay
           Expanded(child: Container(color: Colors.red)),
           
           // parte de baixo
@@ -30,30 +31,19 @@ class _SignInScreenState extends State<SignInScreen> {
                   top: Radius.circular(50.0),
                 ),
               ),
-              child: Column(
+              child: const Column(
                 children: [
                   // Email
-                  TextFormField(
-                    decoration: const InputDecoration(
-                      hintText: 'Email',
-                      prefixIcon: Icon(Icons.email),
-                      isDense: true,
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(18.0)),
-                      ),
-                    ),
+                  CustomTextField(
+                    icon: Icons.email,
+                    label: 'Email'
                   ),
                   
                   //Senha
-                  TextFormField(
-                    decoration: const InputDecoration(
-                      hintText: 'Senha',
-                      prefixIcon: Icon(Icons.lock),
-                      isDense: true,
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(18.0)),
-                      ),
-                    ),
+                  CustomTextField(
+                    icon: Icons.lock,
+                    label: 'Senha',
+                    isObscure: true,
                   ),
                 ],
               ),
@@ -64,4 +54,3 @@ class _SignInScreenState extends State<SignInScreen> {
     );
   }
 }
-
