@@ -43,7 +43,7 @@ class _SignInScreenState extends State<SignInScreen> {
                   CustomTextField(
                     icon: Icons.lock,
                     label: 'Senha',
-                    isObscure: true,
+                    isSecret: true,
                   ),
                 ],
               ),
