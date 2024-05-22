@@ -72,6 +72,20 @@ class _SignInScreenState extends State<SignInScreen> {
                       ),
                     ),
                   ),
+
+                  // btn Esqueceu a senha
+                  Align(
+                    alignment: Alignment.centerRight,
+                    child: TextButton(
+                      onPressed: () {},
+                      child: const Text(
+                        'Esqueceu a senha?',
+                        style: TextStyle(
+                          color: Colors.red,
+                        ),
+                      ),
+                    ),
+                  ),
                 ],
               ),
             ),
