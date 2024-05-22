@@ -1,6 +1,5 @@
+import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
-import 'package:flutter/widgets.dart';
 import 'package:fruittrace/src/auth/components/custom_text_field.dart';
 
 class SignInScreen extends StatefulWidget {
@@ -18,7 +17,70 @@ class _SignInScreenState extends State<SignInScreen> {
       body: Column(
         children: [
           // parte de cimay
-          Expanded(child: Container(color: Colors.red)),
+          Expanded(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                // Logo
+                const Text.rich(
+                  TextSpan(
+                    style: TextStyle(
+                      fontSize: 40.0,
+                    ),
+                    children: [
+                      TextSpan(
+                        text: 'Fruit',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      TextSpan(
+                        text: 'Trace',
+                        style: TextStyle(
+                          color: Colors.black,
+                        ),
+                      ),
+                    ],
+                  )
+                ),
+                
+                // Categorias
+                SizedBox(
+                  height: 30.0,
+                  child: DefaultTextStyle(
+                    style: const TextStyle( fontSize: 22.0,  color: Color.fromARGB(255, 143, 59, 59)),
+                    child: AnimatedTextKit(
+                      pause: Duration.zero,
+                      repeatForever: true,
+                      animatedTexts: [
+                        FadeAnimatedText('Frutas', textStyle: const TextStyle(color: Colors.white),),
+                        FadeAnimatedText('Abacaxi'),
+                        FadeAnimatedText('Goiaba'),
+                        FadeAnimatedText('Manga'),
+                        FadeAnimatedText('Acerola'),
+                        FadeAnimatedText('Caju'),
+                        FadeAnimatedText('Uva'),
+                        FadeAnimatedText('Graviola'),
+                        FadeAnimatedText('Tangerina'),
+                        FadeAnimatedText('Mangaba'),
+                        FadeAnimatedText('Pinha'),
+                        FadeAnimatedText('Pitanga'),
+                        FadeAnimatedText('Morango'),
+                        FadeAnimatedText('Maracujá'),
+                        FadeAnimatedText('Cupuaçu'),
+                        FadeAnimatedText('Cajá'),
+                        FadeAnimatedText('Misturas', textStyle: const TextStyle(color: Colors.white),),
+                        FadeAnimatedText('Abacaxi c/ hortelã'),
+                        FadeAnimatedText('Guaráçai'),
+                        FadeAnimatedText('Guarabom'),
+                      ],
+                    ),
+                  ),
+                ),
+              ],
+            ), 
+          ),
           
           // parte de baixo
           Container(
