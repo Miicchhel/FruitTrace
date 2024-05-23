@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:fruittrace/src/auth/components/custom_text_field.dart';
 import 'package:fruittrace/src/auth/config/custom_colors.dart';
 import 'package:fruittrace/src/auth/sign_up_screen.dart';
+import 'package:fruittrace/src/base/base_screen.dart';
 
 class SignInScreen extends StatefulWidget {
   const SignInScreen({super.key});
@@ -140,7 +141,14 @@ class _SignInScreenState extends State<SignInScreen> {
                     SizedBox(
                       height: 50.0,
                       child: ElevatedButton(
-                        onPressed: () {},
+
+                        onPressed: () {
+                          Navigator.of(context).pushReplacement(
+                            MaterialPageRoute(builder: (context) {
+                              return const BaseScreen(); 
+                            }),
+                          );
+                        },
               
                         style: ElevatedButton.styleFrom(
                           backgroundColor: Colors.green,
