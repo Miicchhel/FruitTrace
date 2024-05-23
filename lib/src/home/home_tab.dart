@@ -69,21 +69,33 @@ class HomeTab extends StatelessWidget {
       ),
 
       // Campo de pesquisa
-
+      body: Column(
+        children: [
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
+            child: TextFormField(
+              decoration: InputDecoration(
+                filled: true,
+                fillColor: Colors.white,
+                isDense: true,
+                hintText: 'Pesquise aqui...',
+                hintStyle: TextStyle(color: Colors.grey[400], fontSize: 14),
+                prefixIcon: Icon(Icons.search, color: CustomColors.customContrastColor, size: 21),
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(30.0),
+                  borderSide: const BorderSide(
+                    width: 0,
+                    style: BorderStyle.none,
+                  )
+                ),
+              ),
+            ),
+          ),
+        ],
+      ),
       // Categorias
 
       // Grid
     );
   }
 }
-
-// Badge(
-//    backgroundColor: CustomColors.customContrastColor,
-//    label: Text(
-//       '2'
-//       style: const TextStyle(
-//       color: Colors.white,
-//       fontSize: 12,
-//    ),
-// ),
-// child:
