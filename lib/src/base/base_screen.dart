@@ -6,8 +6,16 @@ class BaseScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(color: Colors.red,),
+      body: PageView(
+        children: [
+          Container(color: Colors.purple),
+          Container(color: Colors.green),
+          Container(color: Colors.blue),
+          Container(color: Colors.yellow),
+        ],
+      ),
       bottomNavigationBar: BottomNavigationBar(
+        currentIndex: 2,
         type: BottomNavigationBarType.fixed,
         backgroundColor: Colors.green,
         selectedItemColor: Colors.white,
