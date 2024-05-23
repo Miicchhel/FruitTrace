@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fruittrace/src/home/home_tab.dart';
 
 class BaseScreen extends StatefulWidget {
   const BaseScreen({super.key});
@@ -22,7 +23,7 @@ class _BaseScreenState extends State<BaseScreen> {
           });
         },
         children: [
-          Container(color: Colors.purple),
+          HomeTab(),
           Container(color: Colors.green),
           Container(color: Colors.blue),
           Container(color: Colors.yellow),
