@@ -9,7 +9,7 @@ class HomeTab extends StatelessWidget {
     return Scaffold(
       // App bar
       appBar: AppBar(
-        backgroundColor: CustomColors.customSwatchColor,
+        backgroundColor: CustomColors.customSwatchColor[100],
         centerTitle: true,
         title: const Text.rich(
           TextSpan(
@@ -40,6 +40,13 @@ class HomeTab extends StatelessWidget {
             ],
           ),
         ),
+        actions: [
+          IconButton(
+            onPressed: () {},
+            icon: const Icon(Icons.shopping_cart),
+            color: CustomColors.customSwatchColor,
+          ),
+        ],
       ),
 
       // Campo de pesquisa
