@@ -40,11 +40,30 @@ class HomeTab extends StatelessWidget {
             ],
           ),
         ),
+        
+        // add carrinho com quantidade
         actions: [
-          IconButton(
-            onPressed: () {},
-            icon: const Icon(Icons.shopping_cart),
-            color: CustomColors.customSwatchColor,
+          Padding(
+            padding: const EdgeInsets.only(top: 5.0, right: 15.0),
+            child: GestureDetector(
+              onTap: () {
+                print('teste badge carrinho');
+              },
+              child: Badge(
+                backgroundColor: Colors.red,
+                label: Text(
+                  '2',
+                  style: const TextStyle(
+                    color: Colors.white,
+                    fontSize: 12,
+                  ),
+                ),
+                child: Icon(
+                  Icons.shopping_cart,
+                  color: CustomColors.customSwatchColor,
+                ),
+              ),
+            ),
           ),
         ],
       ),
@@ -57,3 +76,14 @@ class HomeTab extends StatelessWidget {
     );
   }
 }
+
+// Badge(
+//    backgroundColor: CustomColors.customContrastColor,
+//    label: Text(
+//       '2'
+//       style: const TextStyle(
+//       color: Colors.white,
+//       fontSize: 12,
+//    ),
+// ),
+// child:
