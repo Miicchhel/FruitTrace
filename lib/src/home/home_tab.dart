@@ -1,8 +1,25 @@
 import 'package:flutter/material.dart';
 import 'package:fruittrace/src/config/custom_colors.dart';
+import 'package:fruittrace/src/home/components/category_title.dart';
 
-class HomeTab extends StatelessWidget {
+class HomeTab extends StatefulWidget {
   const HomeTab({super.key});
+
+  @override
+  State<HomeTab> createState() => _HomeTabState();
+}
+
+class _HomeTabState extends State<HomeTab> {
+
+  List<String> categories = [
+    'Tropicais',
+    'Cítricas',
+    'Vermelhas',
+    'Exóticas',
+    'Clássicas',
+  ];
+
+  String selectedCategory = 'Tropicais';
 
   @override
   Widget build(BuildContext context) {
@@ -68,9 +85,9 @@ class HomeTab extends StatelessWidget {
         ],
       ),
 
-      // Campo de pesquisa
       body: Column(
         children: [
+          // Campo de pesquisa
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
             child: TextFormField(
@@ -91,11 +108,30 @@ class HomeTab extends StatelessWidget {
               ),
             ),
           ),
+          
+          // Categorias
+          Container(
+            padding: const EdgeInsets.only(left: 20.0),
+            height: 40.0,
+            child: ListView.separated(
+              scrollDirection: Axis.horizontal,
+              itemBuilder: (_, index) => CategoryTitle(
+                category: categories[index],
+                isSelected: categories[index] == selectedCategory,
+                onPressed: () {
+                  setState(() {
+                    selectedCategory = categories[index];                  
+                  });
+                },
+              ),
+              separatorBuilder: (_, index) => const SizedBox(width: 10.0,),
+              itemCount: categories.length,
+            ),
+          ),
+
+          // Grid
         ],
       ),
-      // Categorias
-
-      // Grid
     );
   }
 }
