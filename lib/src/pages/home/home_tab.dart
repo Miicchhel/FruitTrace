@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:fruittrace/src/config/custom_colors.dart';
 import 'package:fruittrace/src/pages/home/components/category_title.dart';
+import 'package:fruittrace/src/config/app_data.dart' as app_data;
 
 class HomeTab extends StatefulWidget {
   const HomeTab({super.key});
@@ -10,14 +11,6 @@ class HomeTab extends StatefulWidget {
 }
 
 class _HomeTabState extends State<HomeTab> {
-
-  List<String> categories = [
-    'Tropicais',
-    'Cítricas',
-    'Vermelhas',
-    'Exóticas',
-    'Clássicas',
-  ];
 
   String selectedCategory = 'Tropicais';
 
@@ -116,16 +109,16 @@ class _HomeTabState extends State<HomeTab> {
             child: ListView.separated(
               scrollDirection: Axis.horizontal,
               itemBuilder: (_, index) => CategoryTitle(
-                category: categories[index],
-                isSelected: categories[index] == selectedCategory,
+                category: app_data.categories[index],
+                isSelected: app_data.categories[index] == selectedCategory,
                 onPressed: () {
                   setState(() {
-                    selectedCategory = categories[index];                  
+                    selectedCategory = app_data.categories[index];                  
                   });
                 },
               ),
               separatorBuilder: (_, index) => const SizedBox(width: 10.0,),
-              itemCount: categories.length,
+              itemCount: app_data.categories.length,
             ),
           ),
 
