@@ -18,6 +18,29 @@ class _SignInScreenState extends State<SignInScreen> {
 
     final size = MediaQuery.of(context).size;
 
+    final animatedTexts = [
+      {'text':'Frutas', 'textStyle': const TextStyle(color: Colors.white)},
+      {'text':'Abacaxi'},
+      {'text':'Goiaba'},
+      {'text':'Manga'},
+      {'text':'Acerola'},
+      {'text':'Caju'},
+      {'text':'Uva'},
+      {'text':'Graviola'},
+      {'text':'Tangerina'},
+      {'text':'Mangaba'},
+      {'text':'Pinha'},
+      {'text':'Pitanga'},
+      {'text':'Morango'},
+      {'text':'Maracujá'},
+      {'text':'Cupuaçu'},
+      {'text':'Cajá'},
+      {'text':'Misturas', 'textStyle': const TextStyle(color: Colors.white)},
+      {'text':'Abacaxi c/ hortelã'},
+      {'text':'Guaráçai'},
+      {'text':'Guarabom'},
+    ];
+
     return Scaffold(
       backgroundColor: CustomColors.customSwatchColor,
       body: SingleChildScrollView(
@@ -80,28 +103,12 @@ class _SignInScreenState extends State<SignInScreen> {
                         child: AnimatedTextKit(
                           pause: Duration.zero,
                           repeatForever: true,
-                          animatedTexts: [
-                            FadeAnimatedText('Frutas', textStyle: const TextStyle(color: Colors.white),),
-                            FadeAnimatedText('Abacaxi'),
-                            FadeAnimatedText('Goiaba'),
-                            FadeAnimatedText('Manga'),
-                            FadeAnimatedText('Acerola'),
-                            FadeAnimatedText('Caju'),
-                            FadeAnimatedText('Uva'),
-                            FadeAnimatedText('Graviola'),
-                            FadeAnimatedText('Tangerina'),
-                            FadeAnimatedText('Mangaba'),
-                            FadeAnimatedText('Pinha'),
-                            FadeAnimatedText('Pitanga'),
-                            FadeAnimatedText('Morango'),
-                            FadeAnimatedText('Maracujá'),
-                            FadeAnimatedText('Cupuaçu'),
-                            FadeAnimatedText('Cajá'),
-                            FadeAnimatedText('Misturas', textStyle: const TextStyle(color: Colors.white),),
-                            FadeAnimatedText('Abacaxi c/ hortelã'),
-                            FadeAnimatedText('Guaráçai'),
-                            FadeAnimatedText('Guarabom'),
-                          ],
+                          animatedTexts: animatedTexts.map((item) {
+                            return FadeAnimatedText(
+                              item['text']! as String,
+                              textStyle: item['textStyle'] as TextStyle?,
+                            );
+                          }).toList(),
                         ),
                       ),
                     ),
