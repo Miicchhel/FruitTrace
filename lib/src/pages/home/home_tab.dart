@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fruittrace/src/config/custom_colors.dart';
-import 'package:fruittrace/src/home/components/category_title.dart';
+import 'package:fruittrace/src/pages/home/components/category_title.dart';
 
 class HomeTab extends StatefulWidget {
   const HomeTab({super.key});
