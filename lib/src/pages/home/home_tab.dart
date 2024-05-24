@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:fruittrace/src/config/custom_colors.dart';
-import 'package:fruittrace/src/pages/home/components/category_title.dart';
+import 'package:fruittrace/src/pages/home/components/category_tile.dart';
 import 'package:fruittrace/src/config/app_data.dart' as app_data;
+import 'package:fruittrace/src/pages/home/components/item_tile.dart';
 
 class HomeTab extends StatefulWidget {
   const HomeTab({super.key});
@@ -135,7 +136,7 @@ class _HomeTabState extends State<HomeTab> {
               ),
               itemCount: app_data.items.length,
               itemBuilder: (_, index) {
-                return Container(color: Colors.amber,);
+                return const ItemTile();
               },
             ),
           )          
