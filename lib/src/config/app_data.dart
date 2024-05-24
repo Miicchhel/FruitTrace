@@ -157,3 +157,11 @@ List<ItemModel> items = [
   pinha,
   goiaba,
 ];
+
+  List<String> categories = [
+    'Tropicais',
+    'Cítricas',
+    'Vermelhas',
+    'Exóticas',
+    'Clássicas',
+  ];
