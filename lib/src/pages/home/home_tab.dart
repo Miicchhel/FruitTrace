@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fruittrace/src/config/custom_colors.dart';
+import 'package:fruittrace/src/models/item_model.dart';
 import 'package:fruittrace/src/pages/home/components/category_tile.dart';
 import 'package:fruittrace/src/config/app_data.dart' as app_data;
 import 'package:fruittrace/src/pages/home/components/item_tile.dart';
@@ -13,7 +14,7 @@ class HomeTab extends StatefulWidget {
 
 class _HomeTabState extends State<HomeTab> {
 
-  String selectedCategory = 'Tropicais';
+  String selectedCategory = 'Cítricas';
 
   @override
   Widget build(BuildContext context) {
@@ -105,7 +106,7 @@ class _HomeTabState extends State<HomeTab> {
           
           // Categorias
           Container(
-            padding: const EdgeInsets.only(left: 20.0),
+            padding: const EdgeInsets.symmetric(horizontal: 15.0),
             height: 40.0,
             child: ListView.separated(
               scrollDirection: Axis.horizontal,
@@ -134,9 +135,14 @@ class _HomeTabState extends State<HomeTab> {
                 crossAxisSpacing: 10.0,
                 childAspectRatio: 9 / 11.5,
               ),
-              itemCount: app_data.items.length,
+              itemCount: app_data.items.where((item) => item.category == selectedCategory).length,
               itemBuilder: (_, index) {
-                return const ItemTile();
+                
+                List<ItemModel> filteredItems = app_data.items.where((item) => item.category == selectedCategory).toList();
+
+                return  ItemTile(
+                  item: filteredItems[index],
+                );
               },
             ),
           )          
