@@ -1,15 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:fruittrace/src/config/custom_colors.dart';
 import 'package:fruittrace/src/models/item_model.dart';
+import 'package:fruittrace/src/services/utils_services.dart';
 
 class ItemTile extends StatelessWidget {
   
   final ItemModel item;
 
-  const ItemTile({
+  ItemTile({
     super.key,
     required this.item,
   });
+  
+  final UtilsServices utilsServices = UtilsServices();
 
   @override
   Widget build(BuildContext context) {
@@ -45,7 +48,7 @@ class ItemTile extends StatelessWidget {
             Row(
               children: [
                 Text(
-                  item.price.toString(), 
+                  utilsServices.priceToCurrency(item.price,),
                   style: TextStyle(
                     fontSize: 20.0,
                     fontWeight: FontWeight.bold,
