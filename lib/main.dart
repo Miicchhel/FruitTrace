@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:fruittrace/src/auth/sign_in_screen.dart';
+import 'package:fruittrace/src/pages/auth/sign_in_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -13,7 +13,8 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Greengrocer',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.green)
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.green),
+        scaffoldBackgroundColor: Colors.white.withAlpha(190),
       ),
       debugShowCheckedModeBanner: false,
       home: const SignInScreen(),
