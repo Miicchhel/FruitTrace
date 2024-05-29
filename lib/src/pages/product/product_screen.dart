@@ -22,7 +22,12 @@ class ProductScreen extends StatelessWidget {
             // conteúdo
             Column(
               children: [
-                Expanded(child: Image.asset(item.imgUrl)),
+                Expanded(
+                  child: Hero(
+                    tag: item.imgUrl,
+                    child: Image.asset(item.imgUrl),
+                  ),
+                ),
                 Expanded(
                   child: Container(
                     decoration: BoxDecoration(
