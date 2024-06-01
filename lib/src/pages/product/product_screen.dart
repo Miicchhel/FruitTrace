@@ -4,11 +4,19 @@ import 'package:fruittrace/src/models/item_model.dart';
 import 'package:fruittrace/src/pages/common_widgets/quantityWidget.dart';
 import 'package:fruittrace/src/services/utils_services.dart';
 
-class ProductScreen extends StatelessWidget {
+class ProductScreen extends StatefulWidget {
   final ItemModel item;
-  final UtilsServices utilsServices = UtilsServices();
 
   ProductScreen({super.key, required this.item});
+
+  @override
+  State<ProductScreen> createState() => _ProductScreenState();
+}
+
+class _ProductScreenState extends State<ProductScreen> {
+  final UtilsServices utilsServices = UtilsServices();
+
+  int CartItemQuantity = 1;
 
   @override
   Widget build(BuildContext context) {
@@ -25,8 +33,8 @@ class ProductScreen extends StatelessWidget {
               children: [
                 Expanded(
                   child: Hero(
-                    tag: item.imgUrl,
-                    child: Image.asset(item.imgUrl),
+                    tag: widget.item.imgUrl,
+                    child: Image.asset(widget.item.imgUrl),
                   ),
                 ),
                 Expanded(
@@ -55,7 +63,7 @@ class ProductScreen extends StatelessWidget {
                             children: [
                               Expanded(
                                 child: Text(
-                                  item.itemName,
+                                  widget.item.itemName,
                                   maxLines: 2,
                                   overflow: TextOverflow.ellipsis,
                                   style: const TextStyle(
@@ -66,13 +74,21 @@ class ProductScreen extends StatelessWidget {
                               ),
 
                               // botão de add quantidade
-                              Quantitywidget(),
+                              Quantitywidget(
+                                value: CartItemQuantity,
+                                suffixText: widget.item.unit,
+                                result: (int quantity) {
+                                  setState(() {
+                                    CartItemQuantity = quantity;
+                                  });
+                                },
+                              ),
                             ],
                           ),
             
                           // preço
                           Text(
-                            utilsServices.priceToCurrency(item.price),
+                            utilsServices.priceToCurrency(widget.item.price),
                             style: TextStyle(
                               fontSize: 23,
                               fontWeight: FontWeight.bold,
@@ -86,7 +102,7 @@ class ProductScreen extends StatelessWidget {
                               padding: const EdgeInsets.symmetric(vertical: 10.0),
                               child: SingleChildScrollView(
                                 child: Text(
-                                  item.description,
+                                  widget.item.description,
                                   style: const TextStyle(
                                     height: 1.5,
                                   ),
@@ -138,7 +154,7 @@ class ProductScreen extends StatelessWidget {
               top: 10,
               child: SafeArea(
                 child: IconButton(
-                  onPressed: () => Navigator.of(context).pop(item),
+                  onPressed: () => Navigator.of(context).pop(widget.item),
                   icon: const Icon(
                     Icons.arrow_back_ios,
                     color: Colors.white,
