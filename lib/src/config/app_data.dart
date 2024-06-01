@@ -1,3 +1,4 @@
+import 'package:fruittrace/src/models/cart_item_model.dart';
 import 'package:fruittrace/src/models/item_model.dart';
 
 // frutas clássicas
@@ -193,4 +194,11 @@ List<String> categories = [
   'Exóticas',
   'Clássicas',
   'Misturas',
+];
+
+List<CartItemModel> cartItems = [
+  CartItemModel(item: maracuja, quantity: 2),
+  CartItemModel(item: morango, quantity: 1),
+  CartItemModel(item: abacaxi, quantity: 1),
+  CartItemModel(item: manga, quantity: 3),
 ];
