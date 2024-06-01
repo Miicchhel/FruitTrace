@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:fruittrace/src/config/custom_colors.dart';
 import 'package:fruittrace/src/services/utils_services.dart';
+import 'package:fruittrace/src/config/app_data.dart' as app_data;
 
 class CartTab extends StatefulWidget {
   CartTab({super.key});
@@ -38,9 +39,14 @@ class _CartTabState extends State<CartTab> {
       body: Column(
         children: [
           // lista de itens do carrinho
-          const Expanded(child: Placeholder()),
-
-          // const SizedBox(height: 20),
+          Expanded(
+            child: ListView.builder(
+              itemCount: app_data.cartItems.length,
+              itemBuilder: (BuildContext _, int index) {
+                return Text(app_data.cartItems[index].item.itemName);
+              },
+            ),
+          ),
 
           // Total e confirmação de pedido
           Container(
