@@ -20,18 +20,19 @@ class Quantitywidget extends StatelessWidget {
       ),
       child: Row(
         children: [
-          InkWell(
-            onTap: () {
-              print('clicked');
-            },
-            child: Container(
-              height: 50,
-              width: 50,
-              decoration: const BoxDecoration(
-                color: Colors.grey,
-                shape: BoxShape.circle,
+          Material(
+            child: InkWell(
+              borderRadius: BorderRadius.circular(50.0),
+              onTap: () {},
+              child: Ink(
+                height: 25,
+                width: 25,
+                decoration: const BoxDecoration(
+                  color: Colors.grey,
+                  shape: BoxShape.circle,
+                ),
+                child: const Icon(Icons.remove, color: Colors.white, size: 16,),
               ),
-              child: const Icon(Icons.remove, color: Colors.white, size: 16,),
             ),
           ),
         ],
