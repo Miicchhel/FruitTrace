@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fruittrace/src/config/custom_colors.dart';
 
 class Quantitywidget extends StatelessWidget {
   const Quantitywidget({super.key});
@@ -20,22 +21,54 @@ class Quantitywidget extends StatelessWidget {
       ),
       child: Row(
         children: [
-          Material(
-            child: InkWell(
-              borderRadius: BorderRadius.circular(50.0),
-              onTap: () {},
-              child: Ink(
-                height: 25,
-                width: 25,
-                decoration: const BoxDecoration(
-                  color: Colors.grey,
-                  shape: BoxShape.circle,
-                ),
-                child: const Icon(Icons.remove, color: Colors.white, size: 16,),
-              ),
-            ),
+          _QuantityButton(
+            icon: Icons.remove,
+            color: Colors.grey,
+            onPressed: () {},
+          ),
+          _QuantityButton(
+            icon: Icons.add,
+            color: CustomColors.customSwatchColor,
+            onPressed: () {},
           ),
         ],
+      ),
+    );
+  }
+}
+
+class _QuantityButton extends StatelessWidget {
+
+  final Color color;
+  final IconData icon;
+  final VoidCallback onPressed;
+  
+  const _QuantityButton({
+    super.key,
+    required this.color,
+    required this.icon,
+    required this.onPressed,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Material(
+      child: InkWell(
+        borderRadius: BorderRadius.circular(50.0),
+        onTap: onPressed,
+        child: Ink(
+          height: 25,
+          width: 25,
+          decoration: BoxDecoration(
+            color: color,
+            shape: BoxShape.circle,
+          ),
+          child: Icon(
+            icon,
+            color: Colors.white,
+            size: 16,
+          ),
+        ),
       ),
     );
   }
