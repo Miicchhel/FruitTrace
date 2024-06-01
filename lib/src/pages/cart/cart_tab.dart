@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fruittrace/src/config/custom_colors.dart';
+import 'package:fruittrace/src/pages/cart/components/cart_tile.dart';
 import 'package:fruittrace/src/services/utils_services.dart';
 import 'package:fruittrace/src/config/app_data.dart' as app_data;
 
@@ -43,7 +44,7 @@ class _CartTabState extends State<CartTab> {
             child: ListView.builder(
               itemCount: app_data.cartItems.length,
               itemBuilder: (BuildContext _, int index) {
-                return Text(app_data.cartItems[index].item.itemName);
+                return CartTile(cartItem: app_data.cartItems[index]);
               },
             ),
           ),
