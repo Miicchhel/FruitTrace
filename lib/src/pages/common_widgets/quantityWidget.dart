@@ -26,6 +26,15 @@ class Quantitywidget extends StatelessWidget {
             color: Colors.grey,
             onPressed: () {},
           ),
+
+          const Padding(
+            padding: EdgeInsets.symmetric(horizontal: 6.0),
+            child: Text(
+              '1.0kg',
+              style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
+            ),
+          ),
+
           _QuantityButton(
             icon: Icons.add,
             color: CustomColors.customSwatchColor,
