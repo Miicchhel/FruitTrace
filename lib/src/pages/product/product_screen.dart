@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:fruittrace/src/config/custom_colors.dart';
 import 'package:fruittrace/src/models/item_model.dart';
+import 'package:fruittrace/src/pages/common_widgets/quantityWidget.dart';
 import 'package:fruittrace/src/services/utils_services.dart';
 
 class ProductScreen extends StatelessWidget {
@@ -63,8 +64,9 @@ class ProductScreen extends StatelessWidget {
                                   ),
                                 ),
                               ),
-            
-                              Container(width: 70, height: 30, color: Colors.amber,),
+
+                              // botão de add quantidade
+                              Quantitywidget(),
                             ],
                           ),
             
