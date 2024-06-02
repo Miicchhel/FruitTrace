@@ -22,6 +22,18 @@ class _CartTabState extends State<CartTab> {
     });
   }
 
+  // garante a atualização da tela ao incrementar ou decrementar quantidade um item
+  void updateQuantity(CartItemModel cartItem, int newQuantity) {
+    setState(() {
+      cartItem.quantity = newQuantity;
+
+      // caso para remover o item do carrinho
+      if (newQuantity == 0) {
+        removeItemFromCart(cartItem);
+      }
+    });
+  }
+
   double cartTotalPrice() {
 
     double total = 0;
@@ -65,7 +77,7 @@ class _CartTabState extends State<CartTab> {
               itemBuilder: (BuildContext _, int index) {
                 return CartTile(
                   cartItem: app_data.cartItems[index],
-                  remove: removeItemFromCart,
+                  updateQuantity: updateQuantity,
                 );
               },
             ),

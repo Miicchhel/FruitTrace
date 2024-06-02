@@ -6,11 +6,13 @@ import 'package:fruittrace/src/services/utils_services.dart';
 
 class CartTile extends StatefulWidget {
   final CartItemModel cartItem;
-  final Function(CartItemModel) remove;
+  final Function(CartItemModel, int) updateQuantity;
+
   
   const CartTile({
     super.key,
-    required this.cartItem, required this.remove,
+    required this.cartItem,
+    required this.updateQuantity,
   });
 
   @override
@@ -55,12 +57,7 @@ class _CartTileState extends State<CartTile> {
           value: widget.cartItem.quantity,
           result: (int quantity) {
             setState(() {
-              widget.cartItem.quantity = quantity;
-
-              if(quantity == 0) {
-                // remover item do carrinho
-                widget.remove(widget.cartItem);
-              }
+              widget.updateQuantity(widget.cartItem, quantity);
             });
           },
           isRemovable: true,
