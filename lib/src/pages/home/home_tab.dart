@@ -64,7 +64,7 @@ class _HomeTabState extends State<HomeTab> {
               child: Badge(
                 backgroundColor: Colors.red,
                 label: Text(
-                  '2',
+                  app_data.cartItems.length.toString(),
                   style: const TextStyle(
                     color: Colors.white,
                     fontSize: 12,
