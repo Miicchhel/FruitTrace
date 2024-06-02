@@ -1,5 +1,6 @@
 import 'package:fruittrace/src/models/cart_item_model.dart';
 import 'package:fruittrace/src/models/item_model.dart';
+import 'package:fruittrace/src/models/user_model.dart';
 
 // frutas clássicas
 ItemModel abacaxi = ItemModel(
@@ -202,3 +203,11 @@ List<CartItemModel> cartItems = [
   CartItemModel(item: abacaxi, quantity: 1),
   CartItemModel(item: manga, quantity: 3),
 ];
+
+UserModel user = UserModel(
+  name: 'José Maria',
+  email: 'JM@email.com',
+  phone: '(81) 9 9999-9999',
+  cpf: '999.999.999-99',
+  password: '123456',
+);
