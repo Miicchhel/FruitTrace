@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fruittrace/src/config/custom_colors.dart';
+import 'package:fruittrace/src/pages/auth/sign_in_screen.dart';
 import 'package:fruittrace/src/pages/common_widgets/custom_text_field.dart';
 import 'package:fruittrace/src/config/app_data.dart' as app_data;
 
@@ -33,7 +34,14 @@ class _ProfileTabState extends State<ProfileTab> {
         ),
         actions: [
           IconButton(
-            onPressed: () {},
+            onPressed: () {
+              // sair
+              Navigator.of(context).pushReplacement(
+                MaterialPageRoute(builder: (context) {
+                  return const SignInScreen(); 
+                }),
+              );
+            },
             icon: const Icon(
               Icons.logout,
               color: Colors.green,
