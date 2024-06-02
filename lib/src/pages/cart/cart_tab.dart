@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:fruittrace/src/config/custom_colors.dart';
+import 'package:fruittrace/src/models/cart_item_model.dart';
 import 'package:fruittrace/src/pages/cart/components/cart_tile.dart';
 import 'package:fruittrace/src/services/utils_services.dart';
 import 'package:fruittrace/src/config/app_data.dart' as app_data;
 
 class CartTab extends StatefulWidget {
-  CartTab({super.key});
+  const CartTab({super.key});
 
   @override
   State<CartTab> createState() => _CartTabState();
@@ -14,6 +15,12 @@ class CartTab extends StatefulWidget {
 class _CartTabState extends State<CartTab> {
 
   final UtilsServices utilsServices = UtilsServices();
+
+  void removeItemFromCart(CartItemModel cartItem) {
+    setState(() {
+      app_data.cartItems.remove(cartItem);
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -44,7 +51,10 @@ class _CartTabState extends State<CartTab> {
             child: ListView.builder(
               itemCount: app_data.cartItems.length,
               itemBuilder: (BuildContext _, int index) {
-                return CartTile(cartItem: app_data.cartItems[index]);
+                return CartTile(
+                  cartItem: app_data.cartItems[index],
+                  remove: removeItemFromCart,
+                );
               },
             ),
           ),

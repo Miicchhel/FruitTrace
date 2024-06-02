@@ -4,14 +4,21 @@ import 'package:fruittrace/src/models/cart_item_model.dart';
 import 'package:fruittrace/src/pages/common_widgets/quantityWidget.dart';
 import 'package:fruittrace/src/services/utils_services.dart';
 
-class CartTile extends StatelessWidget {
+class CartTile extends StatefulWidget {
   final CartItemModel cartItem;
-  final UtilsServices utilsServices = UtilsServices();
-
-  CartTile({
+  final Function(CartItemModel) remove;
+  
+  const CartTile({
     super.key,
-    required this.cartItem,
+    required this.cartItem, required this.remove,
   });
+
+  @override
+  State<CartTile> createState() => _CartTileState();
+}
+
+class _CartTileState extends State<CartTile> {
+  final UtilsServices utilsServices = UtilsServices();
 
   @override
   Widget build(BuildContext context) {
@@ -23,20 +30,20 @@ class CartTile extends StatelessWidget {
       child: ListTile(
         // imagem
         leading: Image.asset(
-          cartItem.item.imgUrl,
+          widget.cartItem.item.imgUrl,
           height: 60.0,
           width: 60.0,
         ),
 
         // título
         title: Text(
-          cartItem.item.itemName,
+          widget.cartItem.item.itemName,
           style: const TextStyle(fontWeight: FontWeight.w500),
         ),
 
         // total
         subtitle: Text(
-          utilsServices.priceToCurrency(cartItem.totalPrice()),
+          utilsServices.priceToCurrency(widget.cartItem.totalPrice()),
           style: TextStyle(
               color: CustomColors.customSwatchColor,
               fontWeight: FontWeight.bold),
@@ -44,9 +51,18 @@ class CartTile extends StatelessWidget {
 
         // quantidade
         trailing: Quantitywidget(
-          suffixText: cartItem.item.unit,
-          value: cartItem.quantity,
-          result: (int quantity) {},
+          suffixText: widget.cartItem.item.unit,
+          value: widget.cartItem.quantity,
+          result: (int quantity) {
+            setState(() {
+              widget.cartItem.quantity = quantity;
+
+              if(quantity == 0) {
+                // remover item do carrinho
+                widget.remove(widget.cartItem);
+              }
+            });
+          },
           isRemovable: true,
         ),
       ),
