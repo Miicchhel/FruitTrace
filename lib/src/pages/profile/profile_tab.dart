@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:fruittrace/src/config/custom_colors.dart';
 import 'package:fruittrace/src/pages/common_widgets/custom_text_field.dart';
+import 'package:fruittrace/src/config/app_data.dart' as app_data;
 
 class ProfileTab extends StatelessWidget {
   const ProfileTab({super.key});
@@ -38,7 +39,7 @@ class ProfileTab extends StatelessWidget {
       body: ListView(
         physics: const BouncingScrollPhysics(),
         padding: const EdgeInsets.fromLTRB(16, 32, 16, 16),
-        children: const [
+        children: [
 
           // imagem do usuário
           // Padding(
@@ -58,27 +59,35 @@ class ProfileTab extends StatelessWidget {
 
           // nome do usuário
           CustomTextField(
+            initialValue: app_data.user.name,
             icon: Icons.person,
             label: 'Nome',
+            readOnly: true,
           ),
 
           // email do usuário
           CustomTextField(
+            initialValue: app_data.user.email,
             icon: Icons.email,
             label: 'Email',
+            readOnly: true,
           ),
 
           // celular do usuário
           CustomTextField(
+            initialValue: app_data.user.phone,
             icon: Icons.phone,
             label: 'Celular',
+            readOnly: true,
           ),
 
           // CPF do usuário
           CustomTextField(
+            initialValue: app_data.user.cpf,
             icon: Icons.file_copy,
             label: 'CPF',
             isSecret: true,
+            readOnly: true,
           ),
         ],
       ),
