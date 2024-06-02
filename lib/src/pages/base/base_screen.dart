@@ -49,7 +49,7 @@ class _BaseScreenState extends State<BaseScreen> {
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.shopping_cart_outlined),
-            label: 'Carinho',
+            label: 'Carrinho',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.list),
