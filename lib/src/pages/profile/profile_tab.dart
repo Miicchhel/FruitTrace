@@ -89,6 +89,23 @@ class ProfileTab extends StatelessWidget {
             isSecret: true,
             readOnly: true,
           ),
+
+          // btn para atualizar a senha
+          SizedBox(
+            height: 50.0,
+            child: OutlinedButton(
+              style: OutlinedButton.styleFrom(
+                side: const BorderSide(
+                  color: Colors.green,
+                ),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(20.0),
+                ),
+              ),
+              onPressed: () {},
+              child: const Text('Atulizar senha'),
+            ),
+          ),
         ],
       ),
     );
