@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fruittrace/src/pages/cart/cart_tab.dart';
 import 'package:fruittrace/src/pages/home/home_tab.dart';
 
 class BaseScreen extends StatefulWidget {
@@ -24,7 +25,7 @@ class _BaseScreenState extends State<BaseScreen> {
         },
         children: [
           const HomeTab(),
-          Container(color: Colors.green),
+          CartTab(),
           Container(color: Colors.blue),
           Container(color: Colors.yellow),
         ],
@@ -47,8 +48,8 @@ class _BaseScreenState extends State<BaseScreen> {
             label: 'Home',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.shopping_cart_checkout_outlined),
-            label: 'Favoritos',
+            icon: Icon(Icons.shopping_cart_outlined),
+            label: 'Carrinho',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.list),

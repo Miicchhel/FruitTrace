@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:fruittrace/src/config/custom_colors.dart';
 import 'package:fruittrace/src/models/item_model.dart';
 import 'package:fruittrace/src/pages/common_widgets/quantityWidget.dart';
+import 'package:fruittrace/src/services/cart_service.dart';
 import 'package:fruittrace/src/services/utils_services.dart';
 
 class ProductScreen extends StatefulWidget {
@@ -15,6 +16,7 @@ class ProductScreen extends StatefulWidget {
 
 class _ProductScreenState extends State<ProductScreen> {
   final UtilsServices utilsServices = UtilsServices();
+  final CartService cartService = CartService();
 
   int CartItemQuantity = 1;
 
@@ -120,7 +122,9 @@ class _ProductScreenState extends State<ProductScreen> {
                                 color: Colors.white,
                               ),
             
-                              onPressed: () {},
+                              onPressed: () {
+                                cartService.addItemToCart(widget.item, CartItemQuantity);
+                              },
                               
                               style: ElevatedButton.styleFrom(
                                 backgroundColor: Colors.green,

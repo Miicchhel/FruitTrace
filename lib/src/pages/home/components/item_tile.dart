@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:fruittrace/src/config/custom_colors.dart';
 import 'package:fruittrace/src/models/item_model.dart';
 import 'package:fruittrace/src/pages/product/product_screen.dart';
+import 'package:fruittrace/src/services/cart_service.dart';
 import 'package:fruittrace/src/services/utils_services.dart';
 
 class ItemTile extends StatelessWidget {
@@ -14,6 +15,7 @@ class ItemTile extends StatelessWidget {
   });
   
   final UtilsServices utilsServices = UtilsServices();
+  final CartService cartService = CartService();
 
   @override
   Widget build(BuildContext context) {
@@ -92,7 +94,7 @@ class ItemTile extends StatelessWidget {
           right: 4.0,
           child: GestureDetector(
             onTap: () {
-              print('clicou botão');
+              cartService.addItemToCart(item, 1);
             },
             child: Container(
               height: 40.0,
