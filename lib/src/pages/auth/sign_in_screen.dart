@@ -1,6 +1,6 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
-import 'package:fruittrace/src/pages/auth/components/custom_text_field.dart';
+import 'package:fruittrace/src/pages/common_widgets/custom_text_field.dart';
 import 'package:fruittrace/src/config/custom_colors.dart';
 import 'package:fruittrace/src/pages/auth/sign_up_screen.dart';
 import 'package:fruittrace/src/pages/base/base_screen.dart';
