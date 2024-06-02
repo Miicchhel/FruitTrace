@@ -22,6 +22,18 @@ class _CartTabState extends State<CartTab> {
     });
   }
 
+  double cartTotalPrice() {
+
+    double total = 0;
+    
+    for (var item in app_data.cartItems) {
+        total += item.totalPrice();
+    }
+
+    return total;
+
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -80,14 +92,14 @@ class _CartTabState extends State<CartTab> {
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
                 const Text(
-                  'Total Geral (teste)',
+                  'Total Geral',
                   style: TextStyle(
                     fontSize: 12,
                   ),
                 ),
 
                 Text(
-                  utilsServices.priceToCurrency(50.5),
+                  utilsServices.priceToCurrency(cartTotalPrice()),
                   style: TextStyle(
                     fontSize: 23.0,
                     color: CustomColors.customSwatchColor,
