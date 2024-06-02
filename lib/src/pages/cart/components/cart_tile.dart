@@ -47,6 +47,7 @@ class CartTile extends StatelessWidget {
           suffixText: cartItem.item.unit,
           value: cartItem.quantity,
           result: (int quantity) {},
+          isRemovable: true,
         ),
       ),
     );
