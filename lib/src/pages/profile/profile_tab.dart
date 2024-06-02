@@ -3,9 +3,14 @@ import 'package:fruittrace/src/config/custom_colors.dart';
 import 'package:fruittrace/src/pages/common_widgets/custom_text_field.dart';
 import 'package:fruittrace/src/config/app_data.dart' as app_data;
 
-class ProfileTab extends StatelessWidget {
+class ProfileTab extends StatefulWidget {
   const ProfileTab({super.key});
 
+  @override
+  State<ProfileTab> createState() => _ProfileTabState();
+}
+
+class _ProfileTabState extends State<ProfileTab> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -90,7 +95,7 @@ class ProfileTab extends StatelessWidget {
             readOnly: true,
           ),
 
-          // btn para atualizar a senha
+          // btn para abrir o dialog de atualização de senha
           SizedBox(
             height: 50.0,
             child: OutlinedButton(
@@ -102,12 +107,107 @@ class ProfileTab extends StatelessWidget {
                   borderRadius: BorderRadius.circular(20.0),
                 ),
               ),
-              onPressed: () {},
+              onPressed: () {
+                updatePassword();
+              },
               child: const Text('Atulizar senha'),
             ),
           ),
         ],
       ),
+    );
+  }
+
+  Future<bool?> updatePassword() {
+    return showDialog(
+      context: context,
+      builder: (context) {
+        return Dialog(
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(20.0),
+          ),
+          child: Stack(
+            children: [
+              Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    // titulo
+                    const Padding(
+                      padding: EdgeInsets.symmetric(vertical: 12.0),
+                        child: Text(
+                          'Atualização de senha',
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            fontSize: 18.0,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                    ),
+              
+                    // senha atual
+                    const CustomTextField(
+                      icon: Icons.lock,
+                      label: 'Senha atual',
+                      isSecret: true,
+                    ),
+                    
+                    // nova senha
+                    const CustomTextField(
+                      icon: Icons.lock_outline,
+                      label: 'Nova senha',
+                      isSecret: true,
+                    ),
+                    
+                    // confirmar nova senha
+                    const CustomTextField(
+                      icon: Icons.lock_outline,
+                      label: 'Confirmar nova senha',
+                      isSecret: true,
+                    ),
+
+                    // btn para atualizar a senha
+                    SizedBox(
+                      height: 50.0,
+                      child: ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: CustomColors.customSwatchColor,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(20.0),
+                          ),
+                        ),
+                        onPressed: () {},
+                        child: const Text(
+                          'Atualizar',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 18.0,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+
+              // botão fechar
+              Positioned(
+                top: 5.0,
+                right: 5.0,
+                child: IconButton(
+                  onPressed: () {
+                    Navigator.of(context).pop();
+                  },
+                  icon: const Icon(Icons.close),
+                ),
+              ),
+            ],
+          ),
+        );
+      }
     );
   }
 }
