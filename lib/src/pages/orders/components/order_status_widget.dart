@@ -13,10 +13,31 @@ class OrderStatusWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Column(children: [
-      _StatusDot(isActive: true, title: 'deu booooooooooooooooom'),
+    return const Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+      _StatusDot(isActive: true, title: 'deu bom'),
+      _CustomDivider(),
       _StatusDot(isActive: false, title: 'deu ruim',),
+      
       ],
+    );
+  }
+}
+
+class _CustomDivider extends StatelessWidget {
+  const _CustomDivider({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      margin: const EdgeInsets.symmetric(
+        horizontal: 8.0,
+        vertical: 3.0,
+      ),
+      height: 10.0,
+      width: 2.0,
+      color: Colors.grey.shade300,
     );
   }
 }
@@ -64,6 +85,7 @@ class _StatusDot extends StatelessWidget {
             title,
             style: TextStyle(
               color: Colors.green[800],
+              fontSize: 12,
             ),
           ),
         )
