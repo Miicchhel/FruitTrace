@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:fruittrace/src/models/cart_item_model.dart';
 import 'package:fruittrace/src/models/order_model.dart';
+import 'package:fruittrace/src/pages/orders/components/order_status_widget.dart';
 import 'package:fruittrace/src/services/utils_services.dart';
 
 class OrderTile extends StatelessWidget {
@@ -44,7 +45,7 @@ class OrderTile extends StatelessWidget {
               // divisor
               child: Row(
                 children: [
-                  // lado esquerdo
+                  // lado esquerdo: lista dos peidos
                   Expanded(
                     flex: 3,
                     child: ListView(
@@ -57,11 +58,19 @@ class OrderTile extends StatelessWidget {
                     ),
                   ),
 
-                  // lado direito
+                  // divisória
+                  VerticalDivider(
+                    color: Colors.grey.shade300,
+                    thickness: 2.0,
+                    width: 10.0,
+                  ),
+
+                  // lado direito: status dos pedidos
                   Expanded(
                     flex: 2,
-                    child: Container(
-                      color: Colors.blue,
+                    child: OrderStatusWidget(
+                      status: order.status,
+                      isOverdue: order.overdueDateTime.isBefore(DateTime.now()),
                     ),
                   ),
                 ],
