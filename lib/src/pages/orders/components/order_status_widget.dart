@@ -5,7 +5,18 @@ class OrderStatusWidget extends StatelessWidget {
   final String status;
   final bool isOverdue;
 
-  const OrderStatusWidget({
+  final Map<String, int> allStatus = <String, int> {
+    'pending_payment': 0,
+    'refunded': 1,
+    'paid': 2,
+    'preparing_purchase': 3,
+    'shipping': 4,
+    'delivered': 5,
+  };
+  
+  int get currentStatus => allStatus[status]!;
+
+  OrderStatusWidget({
     super.key,
     required this.status,
     required this.isOverdue,
@@ -13,13 +24,31 @@ class OrderStatusWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Column(
+    return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-      _StatusDot(isActive: true, title: 'deu bom'),
-      _CustomDivider(),
-      _StatusDot(isActive: false, title: 'deu ruim',),
-      
+        
+        const  _StatusDot(
+          isActive: true,
+          title: 'Pedido confirmado',
+        ),
+
+        const _CustomDivider(),
+
+        if(currentStatus == 1) ...[
+          const _StatusDot(
+            isActive: true,
+            title: 'Pix estornado',
+            backgroundColor: Colors.orange,
+          ),
+        ] else if(isOverdue) ...[
+          const _StatusDot(
+            isActive: true,
+            title: 'Pagamento Pix vencido',
+            backgroundColor: Colors.red,
+          ),
+        ]
+
       ],
     );
   }
@@ -46,11 +75,13 @@ class _StatusDot extends StatelessWidget {
 
   final bool isActive;
   final String title;
+  final Color? backgroundColor;
 
   const _StatusDot({
     super.key,
     required this.isActive,
     required this.title,
+    this.backgroundColor,
   });
 
   @override
@@ -67,7 +98,7 @@ class _StatusDot extends StatelessWidget {
             border: Border.all(
               color: CustomColors.customSwatchColor,
             ),
-            color: isActive ? CustomColors.customSwatchColor : Colors.transparent,
+            color: isActive ? backgroundColor ?? CustomColors.customSwatchColor : Colors.transparent,
           ),
           child: isActive ?
             const Icon(
