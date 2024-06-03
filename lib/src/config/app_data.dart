@@ -257,4 +257,44 @@ List<OrderModel> orders = [
       ),
     ],
   ),
+
+  // Pedido 03
+  OrderModel(
+    copyAndPaste: 'q1w2e3r4t5y6',
+    createdDateTime: DateTime.parse(
+      '2024-06-08 08:00:10.458',
+    ),
+    overdueDateTime: DateTime.parse(
+      '2024-06-08 09:00:10.458',
+    ),
+    id: 'a65s4d6a2s1d2a8s',
+    status: 'shipping',
+    total: 7.5,
+    items: [
+      CartItemModel(
+        item: abacaxi,
+        quantity: 1,
+      ),
+    ],
+  ),
+
+  // Pedido 04
+  OrderModel(
+    copyAndPaste: 'q1w2e3r4t5y6',
+    createdDateTime: DateTime.parse(
+      '2024-06-08 08:00:10.458',
+    ),
+    overdueDateTime: DateTime.parse(
+      '2024-06-08 09:00:10.458',
+    ),
+    id: 'a65s4d6a2s1d9a1s',
+    status: 'pending_payment',
+    total: 12.0,
+    items: [
+      CartItemModel(
+        item: morango,
+        quantity: 1,
+      ),
+    ],
+  ),
 ];

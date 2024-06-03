@@ -17,7 +17,14 @@ class OrderTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    
+    final checkIsOverdue = order.overdueDateTime.isBefore(DateTime.now());
+    
     return Card(
+
+      color: order.status == 'pending_payment' && checkIsOverdue ? Colors.red[50] : 
+              order.status == 'refunded' ? Colors.orange[50] : Colors.greenAccent[50],
+
       shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(
         20.0,
@@ -27,6 +34,7 @@ class OrderTile extends StatelessWidget {
         data: Theme.of(context).copyWith(dividerColor: Colors.transparent),
 
         child: ExpansionTile(
+          // initiallyExpanded: order.status == 'pending_payment',
           title: Column(
             mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -40,37 +48,38 @@ class OrderTile extends StatelessWidget {
           ),
           childrenPadding: const EdgeInsets.fromLTRB(16, 0, 16, 16),
           children: [
-            SizedBox(
-              height: 150,
-              // divisor
+            IntrinsicHeight(
               child: Row(
                 children: [
                   // lado esquerdo: lista dos peidos
                   Expanded(
                     flex: 3,
-                    child: ListView(
-                      children: order.items.map((orderItem) {
-                        return _OrderItemWidget(
-                          utilsServices: utilsServices,
-                          orderItem: orderItem,
-                        );
-                      }).toList(),
+                    child: SizedBox(
+                      height: 150,
+                      child: ListView(
+                        children: order.items.map((orderItem) {
+                          return _OrderItemWidget(
+                            utilsServices: utilsServices,
+                            orderItem: orderItem,
+                          );
+                        }).toList(),
+                      ),
                     ),
                   ),
-
+              
                   // divisória
                   VerticalDivider(
                     color: Colors.grey.shade300,
                     thickness: 2.0,
                     width: 10.0,
                   ),
-
+              
                   // lado direito: status dos pedidos
                   Expanded(
                     flex: 2,
                     child: OrderStatusWidget(
                       status: order.status,
-                      isOverdue: order.overdueDateTime.isBefore(DateTime.now()),
+                      isOverdue: checkIsOverdue,
                     ),
                   ),
                 ],
