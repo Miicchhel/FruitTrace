@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:fruittrace/src/config/custom_colors.dart';
 import 'package:fruittrace/src/config/app_data.dart' as app_data;
+import 'package:fruittrace/src/pages/orders/components/order_tile.dart';
 
 class OrdersTab extends StatelessWidget {
   const OrdersTab({super.key});
@@ -32,9 +33,8 @@ class OrdersTab extends StatelessWidget {
         physics: const BouncingScrollPhysics(),
         separatorBuilder: (_, index) => SizedBox(height: 10.0),
         itemCount: app_data.orders.length,
-        itemBuilder: (_, index) {
-          return Text(app_data.orders[index].id);
-        }),
+        itemBuilder: (_, index) => OrderTile(order: app_data.orders[index]),
+      ),
     );
   }
 }
