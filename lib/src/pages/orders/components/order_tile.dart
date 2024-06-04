@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:fruittrace/src/models/cart_item_model.dart';
 import 'package:fruittrace/src/models/order_model.dart';
+import 'package:fruittrace/src/pages/common_widgets/payment_dialog.dart';
 import 'package:fruittrace/src/pages/orders/components/order_status_widget.dart';
 import 'package:fruittrace/src/services/utils_services.dart';
 
@@ -117,7 +118,11 @@ class OrderTile extends StatelessWidget {
                     borderRadius: BorderRadius.circular(20),
                   ),
                 ),
-                onPressed: () {},
+                onPressed: () {
+                  showDialog(context: context, builder: (_) {
+                    return PaymentDialog(order: order);
+                  });
+                },
                 icon: const Icon(Icons.pix, color: Colors.white),
                 label: const Text(
                   'Ver QR Code Pix',
