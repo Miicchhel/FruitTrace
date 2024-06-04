@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:fruittrace/src/models/cart_item_model.dart';
 import 'package:fruittrace/src/models/order_model.dart';
 import 'package:fruittrace/src/pages/orders/components/order_status_widget.dart';
@@ -47,6 +48,7 @@ class OrderTile extends StatelessWidget {
             ],
           ),
           childrenPadding: const EdgeInsets.fromLTRB(16, 0, 16, 16),
+          expandedCrossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             IntrinsicHeight(
               child: Row(
@@ -84,7 +86,45 @@ class OrderTile extends StatelessWidget {
                   ),
                 ],
               ),
-            )
+            ),
+
+            // total do pedido
+            Text.rich(
+              TextSpan(
+                style: const TextStyle(
+                  fontSize: 20.0,
+                ),
+                children: [
+                  const TextSpan(text: 'Total ',
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  TextSpan(
+                    text: utilsServices.priceToCurrency(order.total),
+                  ),
+                ],
+              ),
+            ),
+
+            // btn QR code pagamento
+            Visibility(
+              visible: order.status == 'pending_payment' && !checkIsOverdue,
+              child: ElevatedButton.icon(
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.green,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(20),
+                  ),
+                ),
+                onPressed: () {},
+                icon: const Icon(Icons.pix, color: Colors.white),
+                label: const Text(
+                  'Ver QR Code Pix',
+                  style: TextStyle(color: Colors.white),
+                ),
+              ),
+            ),
           ],
         ),
       ),
