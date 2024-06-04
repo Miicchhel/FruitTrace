@@ -1,5 +1,6 @@
 import 'package:fruittrace/src/models/cart_item_model.dart';
 import 'package:fruittrace/src/models/item_model.dart';
+import 'package:fruittrace/src/models/order_model.dart';
 import 'package:fruittrace/src/models/user_model.dart';
 
 // frutas clássicas
@@ -211,3 +212,89 @@ UserModel user = UserModel(
   cpf: '999.999.999-99',
   password: '123456',
 );
+
+List<OrderModel> orders = [
+  // Pedido 01
+  OrderModel(
+    copyAndPaste: 'q1w2e3r4t5y6',
+    createdDateTime: DateTime.parse(
+      '2024-06-01 10:00:10.458',
+    ),
+    overdueDateTime: DateTime.parse(
+      '2024-06-01 11:00:10.458',
+    ),
+    id: 'asd6a54da6s2d1',
+    status: 'pending_payment',
+    total: 23.0,
+    items: [
+      CartItemModel(
+        item: manga,
+        quantity: 2,
+      ),
+      CartItemModel(
+        item: pitanga,
+        quantity: 2,
+      ),
+    ],
+  ),
+
+  // Pedido 02
+  OrderModel(
+    copyAndPaste: 'q1w2e3r4t5y6',
+    createdDateTime: DateTime.parse(
+      '2024-06-08 10:00:10.458',
+    ),
+    overdueDateTime: DateTime.parse(
+      '2024-06-08 11:00:10.458',
+    ),
+    id: 'a65s4d6a2s1d6a5s',
+    status: 'refunded',
+    total: 6.5,
+    items: [
+      CartItemModel(
+        item: goiaba,
+        quantity: 1,
+      ),
+    ],
+  ),
+
+  // Pedido 03
+  OrderModel(
+    copyAndPaste: 'q1w2e3r4t5y6',
+    createdDateTime: DateTime.parse(
+      '2024-06-08 08:00:10.458',
+    ),
+    overdueDateTime: DateTime.parse(
+      '2024-06-08 09:00:10.458',
+    ),
+    id: 'a65s4d6a2s1d2a8s',
+    status: 'shipping',
+    total: 7.5,
+    items: [
+      CartItemModel(
+        item: abacaxi,
+        quantity: 1,
+      ),
+    ],
+  ),
+
+  // Pedido 04
+  OrderModel(
+    copyAndPaste: 'q1w2e3r4t5y6',
+    createdDateTime: DateTime.parse(
+      '2024-06-08 08:00:10.458',
+    ),
+    overdueDateTime: DateTime.parse(
+      '2024-06-08 09:00:10.458',
+    ),
+    id: 'a65s4d6a2s1d9a1s',
+    status: 'pending_payment',
+    total: 12.0,
+    items: [
+      CartItemModel(
+        item: morango,
+        quantity: 1,
+      ),
+    ],
+  ),
+];
