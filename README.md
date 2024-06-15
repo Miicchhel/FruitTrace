@@ -7,7 +7,11 @@ Este projeto está sendo desenvolvido para a disciplina de Fundamentos de Progra
 
 **FruitTrace** é tanto o nome do nosso aplicativo quanto da nossa loja física, situada na Zona Rural de São Vicente Ferrer, PE. Somos uma microempresa familiar com cerca de 10 funcionários, desempenhando um papel significativo no setor de vendas de frutas na região. Apesar do sucesso local, enfrentamos desafios na captação de novos clientes devido à competitividade do mercado e à falta de investimentos em marketing, que atualmente se baseia principalmente no boca a boca em nossa região. Para superar essas dificuldades e ampliar nosso alcance, criamos o aplicativo FruitTrace, que visa modernizar nossa abordagem e conquistar novos mercados.
 
-<img src="https://github.com/Miicchhel/FruitTrace/assets/7192812/1c543add-ca55-453a-b5db-abb310505451" alt="logo fruittrace" width="350">
+### Logo
+<img src="https://github.com/Miicchhel/FruitTrace/assets/7192812/66bff1af-a548-4732-8437-d64e7586aee6" alt="logoPequenoGeral" width="350">
+
+<img src="https://github.com/Miicchhel/FruitTrace/assets/7192812/79f12ed3-821e-4d88-959f-fa7370b15e67" alt="logoDetalhadoDoProjeto" width="350">
+
 
 ## Funcionalidades do Aplicativo
 
